@@ -1,7 +1,9 @@
-from flask import Flask
-
-app  = Flask(__name__)
-
-@app.route("/")
-def hello():
-    return "Hello world"
+class Solution(object):
+   def twoSum(self, nums, target):
+        seen = {}
+        for i, v in enumerate(nums):
+            remaining = target - v
+            if remaining in seen:
+                return [seen[remaining], i]
+            seen[v] = i
+        return []
